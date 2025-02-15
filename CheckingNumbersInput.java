@@ -1,47 +1,36 @@
 import java.util.Scanner;
 public class CheckingNumbersInput {
-    public static double checkIn(double myNumber1) {
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("Enter number: ");
-            if (scanner.hasNextDouble()) {
-                myNumber1 = scanner.nextDouble();
-                break;
-            } else {
-                System.out.println("Eror: enter only number: ");
+    public static double checkIn(Scanner scanner,String message) {
+        double number;
+        while (true){
+            System.out.println(message);
+            if(scanner.hasNextDouble()){
+               number= scanner.nextDouble();
+               scanner.nextLine();
+               return number;
+            }else {
+                System.out.println("Error: enter only a number!");
                 scanner.next();
             }
         }
-        return myNumber1;
     }
+    public static int checkIn4(int click) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Click 1 to see the calculation history or 0 to exit!:");
+            if (scanner.hasNextInt()) {
+                click = scanner.nextInt();
 
-    public static double checkIn2(double myNumber1) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("Enter first number: ");
-            if (scanner.hasNextDouble()) {
-                myNumber1 = scanner.nextDouble();
-                break;
+                if (click==1||click==0){
+                    break;
+                }else {
+                    System.out.println("Eror: enter only 1/0: ");
+                }
             } else {
-                System.out.println("Eror: enter only number: ");
+                System.out.println("Eror: enter only numbers (1/0): ");
                 scanner.next();
             }
         }
-        return myNumber1;
-    }
-    public static double checkIn3(double myNumber2) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("Enter second number: ");
-            if (scanner.hasNextDouble()) {
-                myNumber2 = scanner.nextDouble();
-                break;
-            } else {
-                System.out.println("Eror: enter only number: ");
-                scanner.next();
-            }
-        }
-        return myNumber2;
+        return click;
     }
 }
